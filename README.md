@@ -8,7 +8,7 @@
 
 ### Introduction
 
-For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
+This project, is solving the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
 ![Trained Agent](reacher.gif)
 
@@ -18,7 +18,7 @@ The observation space consists of 33 variables corresponding to position, rotati
 
 ### Distributed Training
 
-For this project, we will provide you with two separate versions of the Unity environment:
+For this project, two separate versions of the Unity environment are provided:
 - The first version contains a single agent.
 - The second version contains 20 identical agents, each with its own copy of the environment.  
 
@@ -26,13 +26,13 @@ The second version is useful for algorithms like [PPO](https://arxiv.org/pdf/170
 
 ### Solving the Environment
 
-Note that your project submission need only solve one of the two versions of the environment. 
+This project support both provided environments. The DDPG is used to solve this environment. The environment will be solved faster using the second environment.
 
-#### Option 1: Solve the First Version
+#### Option 1: The First Version
 
 The task is episodic, and in order to solve the environment,  your agent must get an average score of +30 over 100 consecutive episodes.
 
-#### Option 2: Solve the Second Version
+#### Option 2: The Second Version
 
 The barrier for solving the second version of the environment is slightly different, to take into account the presence of many agents.  In particular, your agents must get an average score of +30 (over 100 consecutive episodes, and over all agents).  Specifically,
 - After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent.  This yields 20 (potentially different) scores.  We then take the average of these 20 scores. 
