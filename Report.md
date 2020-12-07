@@ -7,7 +7,7 @@ In this environment, a double-jointed arm can move to target locations. A reward
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
 
-## Evolution
+## Evolution Strategy
 
 I have been facinated by one policy based approach which is the evolution strategy, simply becausse it use the same strategy of the evolution, and so the randomness is the main tool. I wanted to solve this problem using this method although I knew it was not the most efficient method for this problem. First I solved quite easily the [Bipedal Walker](https://gym.openai.com/envs/BipedalWalker-v2/) from open Ai gym, just by adapting few hyperparameters. 
 To solve the Reacher environment, I managed to reach the score 3 with the first approach so I tried to improve the alogorithm using various techniques.
@@ -48,6 +48,8 @@ best_weight_rewards = np.average(elite_weights, axis=0,  weights=elite_rewards)
 The evolution strategy is impressive to solve really complex problem without using backpropagation. This technique is based only on generating random weights. By the previous improvement described I could increase the score from 3 to reach above 10.
 All the source code is available [in this repository](https://github.com/Vinssou/ReacherEvolution)
 
+![Progress](evolution_progress01.png)
+
 ## DDPG Architecture
 Although the Evolution Stategy shows impressive result, I couldn't solve this environment in a decent amount of time. My second attempt was to try the DDPG architecture. 
 
@@ -55,9 +57,30 @@ Although the Evolution Stategy shows impressive result, I couldn't solve this en
 This architecture used two neural network, an actor that predict the action, and a critci that predict the value function.  Both of those neural network used a target network. So there are 4 neuraal netwok in total.
 
 ### Soft update
+At every step we update the weight of the target networks.
+
+### Hyperparameters
+
+```python
+BUFFER_SIZE = 100000    # replay buffer size
+BATCH_SIZE = 256        # minibatch size
+GAMMA = 0.99            # discount factor
+TAU = 1e-3              # for soft update of target parameters
+LR_ACTOR = 1e-3         # learning rate of the actor 
+LR_CRITIC = 1e-3        # learning rate of the critic
+WEIGHT_DECAY = 0.0      # L2 weight decay
+
+EXPLORATION_DECAY = 0.999999
+EXPLORATION_MIN = 0.01
+LEARN_FREQUENCY = 20*20
+LEARN_COUNT = 10
+```
 
 ### Batch Learning
 The learning 
+
+### Resolution
+![Progress](ddpg_solved.png)
 
 ## Conclusion
 Actor Critic architecture using PPO and GAE... DDPG4 
