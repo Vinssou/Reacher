@@ -50,7 +50,7 @@ All the source code is available [in this repository](https://github.com/Vinssou
 
 ![Progress](evolution_progresss01.png)
 
-## DDPG Architecture
+## DDPG
 Although the Evolution Stategy shows impressive result, I couldn't solve this environment in a decent amount of time. My second attempt was to try the DDPG architecture. 
 
 ### Network Archtitecture
