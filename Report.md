@@ -48,7 +48,7 @@ best_weight_rewards = np.average(elite_weights, axis=0,  weights=elite_rewards)
 The evolution strategy is impressive to solve really complex problem without using backpropagation. This technique is based only on generating random weights. By the previous improvement described I could increase the score from 3 to reach above 10.
 All the source code is available [in this repository](https://github.com/Vinssou/ReacherEvolution)
 
-![Progress](evolution_progress01.png)
+![Progress](evolution_progresss01.png)
 
 ## DDPG Architecture
 Although the Evolution Stategy shows impressive result, I couldn't solve this environment in a decent amount of time. My second attempt was to try the DDPG architecture. 
