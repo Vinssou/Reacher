@@ -29,7 +29,7 @@ The second version is useful for algorithms like [PPO](https://arxiv.org/pdf/170
 
 ### Solving the Environment
 
-This project support both provided environments. The DDPG is used to solve this environment. The environment will be solved faster using the second environment.
+This project support both provided environments. The DDPG is used to solve this environment. This algorithm is a modified version from Udacity course. The environment will be solved faster using the second environment.
 
 #### Option 1: The First Version
 
