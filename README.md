@@ -16,18 +16,17 @@ In this environment, a double-jointed arm can move to target locations. A reward
 
 The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
+### Solving the Environment
+This project support both provided environments. The DDPG is used to solve this environment. This algorithm is a modified version from Udacity course. The environment will be solved faster using the second environment version described bellow. To solve the environment clone this repository, and run all cells of  [this jupyter notebook](https://github.com/Vinssou/Reacher/blob/master/Continuous_Control.ipynb)
+
 ### Watch the agent
-To simply watch the agent, run the cells one by one, but not the one that train the agent. Then the agent will load the weight and you could watch the result of the DDPG agent. 
+To simply watch the agent, run the cells one by one of  [this jupyter notebook](https://github.com/Vinssou/Reacher/blob/master/Continuous_Control.ipynb) but not the one that train the agent. Then the agent will load the weights and you could watch the result of the DDPG agent. 
 
 ### Distributed Training
 
 For this project, two separate versions of the Unity environment are provided:
 - The first version contains a single agent.
 - The second version contains 20 identical agents, each with its own copy of the environment.  
-
-### Solving the Environment
-
-This project support both provided environments. The DDPG is used to solve this environment. This algorithm is a modified version from Udacity course. The environment will be solved faster using the second environment.
 
 #### Option 1: The First Version
 
