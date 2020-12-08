@@ -57,6 +57,11 @@ Although the Evolution Strategy shows impressive results, I couldn't solve this 
 This architecture used two neural network, an actor that predict the action, and a critci that predict the value function.  Both of those neural network used a target network. So there are 4 neural network in total.
 The actor and the critic are composed of one hidden layer of 128 neurons, and I used a learning rate of 0.001.
 
+### DDPG Learning
+The critic network take as input the state and the action of a certain step, and predict the Q value. Q learning has low variance and bring stability in the learning. 
+Then the actor try to predict the best action accordingly to the critic. The policy gradient methods has low bias, and bring accuracy to the learning. 
+In addiction of the Actor Critic architecture DDPG use target networks for the actor and the critic, that solve the overestimate problem.
+
 ### Soft update
 At every step we update the weight of the actor and the critic target networks, by a small amount. 
 
@@ -81,9 +86,14 @@ LEARN_COUNT = 10
 ```
 
 ### Resolution
+This environment has been solved in 120 episods.
 ![Progress](ddpg_solved.png)
 
-## Conclusion
-Actor Critic architecture using PPO and GAE... DDPG4 
+### Conclusion
+The DDPG algorithm seemed not to work at the beginning I had much better result with the Evolution Strategy. But by learning by batch with DDPG, it changed drastically the learning. I was really surpirzed by such change. I could solve this environment within 120 episods.
+
+## Futur Work
+I am planning to implement an Actor Critic method, using Proximal Policy Optimization for the actor, I am planning to use the Generalized Advantage Estimate. The critic would be a DQN or a D3QN. With the method I would be able to solve the environment in less episod. 
+
 
 
