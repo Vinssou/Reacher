@@ -25,8 +25,6 @@ For this project, two separate versions of the Unity environment are provided:
 - The first version contains a single agent.
 - The second version contains 20 identical agents, each with its own copy of the environment.  
 
-The second version is useful for algorithms like [PPO](https://arxiv.org/pdf/1707.06347.pdf), [A3C](https://arxiv.org/pdf/1602.01783.pdf), and [D4PG](https://openreview.net/pdf?id=SyZipzbCb) that use multiple (non-interacting, parallel) copies of the same agent to distribute the task of gathering experience.  
-
 ### Solving the Environment
 
 This project support both provided environments. The DDPG is used to solve this environment. This algorithm is a modified version from Udacity course. The environment will be solved faster using the second environment.
