@@ -25,7 +25,7 @@ new_weight = previous_best_generation_weight + np.random.choice(2, size=weight_c
 ```
 Similarly than the dropout layer, 20% of the neurons was fixed during this evolution. This technique brought a significant improvement. 
 
-### Weighted generation 
+### Weighted average generation 
 In the original evolution the new generation is based on the percentage of the population. For example we keep 20% of the best new population. The mean of the network weights of this percentage is used to create the new generation.
 Here instead of using the mean, I used a weighted average, so to build the next generation the strongest agent will use more its weight than the second best agent and so on. I used this technique inspired from the evolution in life. The most powerful in a herd usually reproduce more. 
 
@@ -46,7 +46,7 @@ best_weight_rewards = np.average(elite_weights, axis=0,  weights=elite_rewards)
 
 ### Conclusion
 The evolution strategy is impressive to solve really complex problems without using backpropagation. This technique is based only on generating random weights. By the previous improvement described I could increase the score from 3 to reach above 10.
-All the source code is available [in this repository](https://github.com/Vinssou/ReacherEvolution)
+All the source code with the various improvement is available [here](https://github.com/Vinssou/ReacherEvolution/blob/master/Continuous_Control.ipynb)
 
 ![Progress](evolution_progresss01.png)
 
@@ -55,9 +55,13 @@ Although the Evolution Strategy shows impressive results, I couldn't solve this 
 
 ### Network Architecture
 This architecture used two neural network, an actor that predict the action, and a critci that predict the value function.  Both of those neural network used a target network. So there are 4 neural network in total.
+The actor and the critic are composed of one hidden layer of 128 neurons, and I used a learning rate of 0.001.
 
 ### Soft update
-At every step we update the weight of the target networks.
+At every step we update the weight of the actor and the critic target networks, by a small amount. 
+
+### Batch Learning
+At first no learning seemed happening the score were stuck bellow 1.0. Then I started to process the learning more frequently. Each step I was calling the learn function several time. I was also trying to increase or decrease the learning batch from 32 to 64, but the algorithm was not improving much. Then I stop learning at every step and then the learning started to happened, it what suprized me it was that by increasing the btach number even up to 256, the learning was much faster. 
 
 ### Hyperparameters
 
@@ -75,9 +79,6 @@ EXPLORATION_MIN = 0.01
 LEARN_FREQUENCY = 20*20
 LEARN_COUNT = 10
 ```
-
-### Batch Learning
-The learning 
 
 ### Resolution
 ![Progress](ddpg_solved.png)
