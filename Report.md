@@ -58,8 +58,7 @@ This architecture used two neural networks, an actor that predict the action, an
 The actor and the critic are composed of one hidden layer of 128 neurons, and I used a learning rate of 0.001.
 
 ### DDPG Learning
-The critic network takes as input the state and the action of a certain step, and predicts the Q value. Q learning has low variance and brings stability in the learning. 
-Then the actor tries to predict the best action accordingly to the critic. The policy gradient method has low bias, and brings accuracy to the learning. 
+The critic network takes as input the state and the action of a certain step, and predicts how good is the situation according to the state and action. Then the actor tries to predict the best action accordingly to the critic. The policy gradient method has high variance. Using both actor and critic brings accuracy and stability to the learning.  
 In addition to the Actor Critic architecture DDPG uses target networks for both actor and critic, that solve the overestimate problem.
 
 ### Soft update
